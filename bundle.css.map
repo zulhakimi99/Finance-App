@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "RouterLink.svelte",
+    "nav.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\r\n    import { curRoute } from './router.js';\r\n    export let page = {\r\n        path: '/',\r\n        name: 'Home'\r\n    }\r\n    function redirecTo(event){\r\n        curRoute.set(even.target.pathname);\r\n        window.history.pushState({path: page.path}, '', window.location.origin + page.path);\r\n    }\r\n</script>\r\n<style>\r\n    a {\r\n float: left;\r\n color: #f2f2f2;\r\n text-align: center;\r\n padding: 14px 16px;\r\n text-decoration: none;\r\n font-size: 17px;\r\n}\r\n\r\na:hover {\r\n background-color: #ddd;\r\n color: black;\r\n}\r\n\r\n</style>\r\n<a href={page.path} on:click|preventDefault={redirecTo}>{page.name}</a>\r\n\r\n",
+    "<script>\r\n    import router, { curRoute } from '../router.js';\r\n    import RouterLink from '../RouterLink.svelte';\r\n    import { onMount } from 'svelte';\r\n\r\n</script>\r\n<style>\r\n    body {\r\n margin: 10;\r\n font-family: Arial, Helvetica, sans-serif;\r\n}\r\n\r\n.topnav {\r\n overflow: hidden;\r\n background-color:red;\r\n}\r\n\r\n\r\n   </style>\r\n\r\n   \r\n<body>\r\n    <div class=\"topnav\">\r\n        <RouterLink page= {{path: '/', name: 'Home'}} />\r\n    </div>\r\n\r\n    <div id=\"pageContent\">\r\n        <svelte:component this={router[$curRoute]} />\r\n    </div>\r\n</body>"
+  ],
+  "names": [],
+  "mappings": "AAYI,CAAC,eAAC,CAAC,AACN,KAAK,CAAE,IAAI,CACX,KAAK,CAAE,OAAO,CACd,UAAU,CAAE,MAAM,CAClB,OAAO,CAAE,IAAI,CAAC,IAAI,CAClB,eAAe,CAAE,IAAI,CACrB,SAAS,CAAE,IAAI,AAChB,CAAC,AAED,gBAAC,MAAM,AAAC,CAAC,AACR,gBAAgB,CAAE,IAAI,CACtB,KAAK,CAAE,KAAK,AACb,CAAC;ACjBG,IAAI,eAAC,CAAC,AACT,MAAM,CAAE,EAAE,CACV,WAAW,CAAE,KAAK,CAAC,CAAC,SAAS,CAAC,CAAC,UAAU,AAC1C,CAAC,AAED,OAAO,eAAC,CAAC,AACR,QAAQ,CAAE,MAAM,CAChB,iBAAiB,GAAG,AACrB,CAAC"
+}
